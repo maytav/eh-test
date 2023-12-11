@@ -1,0 +1,66 @@
+// side-menu.component.scss
+// הגדרת משתנים לצבעים ולגופנים שישמשו בקומפוננטה
+$background-color: lightblue;
+$font-family: Arial, sans-serif;
+$border-color: black;
+$button-color: green;
+
+@mixin form-style($direction, $align) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: flex-start;
+  font-family: $font-family;
+}
+
+@mixin input-style($border) {
+  margin: 10px;
+  border: none;
+  border-bottom: 2px solid $border;
+  outline: none;
+  background-color: transparent;
+}
+:host{
+  display: flex;
+  height: 100%;
+}
+.side-menu-content {
+  width: 100%;
+  background-color: $background-color;
+  h3 {
+    color: $button-color;
+    font-weight: bold;
+    text-align: center;
+  }
+  form {
+    @include form-style(column, center);
+    .form-group {
+      @include form-style(row, center);
+      label {
+        margin: 10px;
+      }
+      input {
+        @include input-style($border-color);
+
+      }
+      select {
+        @include input-style($border-color);
+      }
+      textarea {
+        @include input-style($border-color);
+      }
+    }
+    .form-buttons {
+      @include form-style(row, center);
+      button {
+        margin: 10px;
+        padding: 10px;
+        border: none;
+        color: white;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

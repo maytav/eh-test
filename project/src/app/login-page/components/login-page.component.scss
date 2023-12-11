@@ -1,0 +1,46 @@
+$primary-color: #00a0d2;
+$secondary-color: #ffffff;
+$font-family: Arial, sans-serif;
+
+
+.login-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("https://thumbs.dreamstime.com/z/stethoscope-calendar-page-date-blue-background-doctor-appointment-medical-concept-187068223.jpg");
+  background-size: cover;
+  background-position: center;
+  .login-box {
+    width: 500px;
+    border: 1px solid $primary-color;
+    padding: 20px;
+    background-color: rgba($secondary-color, 0.8);
+    box-shadow: 0 0 10px $primary-color;
+
+    input, button {
+      margin: 10px;
+      font-family: $font-family;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+
+    }
+    .error-message {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  }
+}
+

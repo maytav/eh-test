@@ -1,0 +1,292 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "ignorePatterns": [
+    "src/**/*.spec.ts",
+    "src/*.spec.ts",
+    "src/**/*.interface.ts",
+    "src/*.interface.ts",
+    "src/**/*.enum.ts",
+    "src/*.enum.ts",
+    "src/**/*.scss",
+    "src/*.scss",
+    "src/**/*.js",
+    "src/*.js"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": false
+      },
+      "plugins": ["@angular-eslint", "@typescript-eslint"],
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "eslint:recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "rules": {
+        "no-var": "error",
+        "no-new-object": "error",
+        "object-shorthand": "error",
+        "quote-props": ["error", "as-needed"], //prettier does it
+        "no-prototype-builtins": "off",
+        "prefer-object-spread": "warn",
+        "array-callback-return": "error",
+        // "prefer-destructuring": ["warn", { "array": false }], //optional
+        "prefer-template": "warn", //optional?
+        "no-eval": "error",
+        "no-useless-escape": "error",
+        "func-style": "warn", // don't like
+        "no-loop-func": "off", // for ts support
+        "@typescript-eslint/no-loop-func": "error", // maybe?
+        "prefer-rest-params": "error",
+        "default-param-last": "off", //for ts support
+        "@typescript-eslint/default-param-last": "error",
+        // "no-new-func": "error", //what is this?
+        // "no-param-reassign": "error", //valuable
+        "prefer-spread": "warn",
+        "prefer-arrow-callback": "error",
+        "no-confusing-arrow": "error",
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "warn",
+        "no-dupe-class-members": "off",
+        "@typescript-eslint/no-dupe-class-members": "error",
+        "class-methods-use-this": "off",
+        "no-duplicate-imports": "error",
+        // "import/no-mutable-exports": "error", //import smart-chips
+        // "import/prefer-default-export": "error", //import smart-chips
+        // "import/first": "error", //import smart-chips
+        // "import/no-webpack-loader-syntax": "error", //import smart-chips
+        // "import/extensions": "error", //import smart-chips
+        // "no-restricted-syntax": "error",
+        "no-iterator": "error",
+        "generator-star-spacing": "error",
+        "dot-notation": "off", //for ts support
+        // "@typescript-eslint/dot-notation": "warn",
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "arguments",
+            "property": "callee",
+            "message": "arguments.callee is deprecated"
+          },
+          {
+            "object": "global",
+            "property": "isFinite",
+            "message": "Please use Number.isFinite instead"
+          },
+          {
+            "object": "self",
+            "property": "isFinite",
+            "message": "Please use Number.isFinite instead"
+          },
+          {
+            "object": "window",
+            "property": "isFinite",
+            "message": "Please use Number.isFinite instead"
+          },
+          {
+            "object": "global",
+            "property": "isNaN",
+            "message": "Please use Number.isNaN instead"
+          },
+          {
+            "object": "self",
+            "property": "isNaN",
+            "message": "Please use Number.isNaN instead"
+          },
+          {
+            "object": "window",
+            "property": "isNaN",
+            "message": "Please use Number.isNaN instead"
+          },
+          {
+            "property": "__defineGetter__",
+            "message": "Please use Object.defineProperty instead."
+          },
+          {
+            "property": "__defineSetter__",
+            "message": "Please use Object.defineProperty instead."
+          },
+          {
+            "object": "Math",
+            "property": "pow",
+            "message": "Use the exponentiation operator (**) instead."
+          }
+        ],
+        "no-undef": "error",
+        "prefer-const": "warn",
+        "one-var": ["error", "never"], // don't like
+        "no-multi-assign": "error",
+        // "no-plusplus": "warn", // that's ok
+        "no-unused-vars": "off", //for typescript rule override
+        "@typescript-eslint/no-unused-vars": [
+          "warn",
+          {
+            "args": "all",
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "caughtErrorsIgnorePattern": "^_"
+          }
+        ],
+        // "eqeqeq": [ //eqeq too many errors for now...
+        //   "error",
+        //   "smart"
+        // ],
+        "no-case-declarations": "error", //good idea
+        // "no-nested-ternary": "error", //good idea
+        "no-unneeded-ternary": "error",
+        "no-else-return": [
+          "error",
+          {
+            "allowElseIf": false
+          }
+        ],
+        "no-new-wrappers": "error",
+        "radix": "error",
+        // "id-length": "error", // nah?
+        // "camelcase": "error", // unusable for us probably
+        // "new-cap": "error", // maybe configure diffrently
+        // "no-underscore-dangle": "error", // can't be implemented in our use case
+        "no-restricted-globals": [
+          "error",
+          {
+            "name": "isFinite",
+            "message": "Use Number.isFinite instead https://github.com/airbnb/javascript#standard-library--isfinite"
+          },
+          {
+            "name": "isNaN",
+            "message": "Use Number.isNaN instead https://github.com/airbnb/javascript#standard-library--isnan"
+          }
+        ],
+        "no-mixed-spaces-and-tabs": "off",
+        "no-extra-semi": "off", //for TS support
+        "@typescript-eslint/no-extra-semi": "warn",
+        "@angular-eslint/no-output-native": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "Function": false
+            }
+          }
+        ],
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-unused-expressions": [
+          "warn",
+          {
+            "allowTernary": true,
+            "allowShortCircuit": true
+          }
+        ],
+        /* ****************************************************************
+          WITHOUT ts recommended medical records proj:  252 problems (166 errors, 86 warnings)
+          WITH ts recommended medical records proj :    800 problems (321 errors, 479 warnings)
+
+
+                        LAYOUT & FORMATTING RULES
+
+           ****************************************************************
+        */
+
+        "arrow-body-style": "error",
+        "space-before-function-paren": "off",
+        "@typescript-eslint/space-before-function-paren": [
+          "error",
+          {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+          }
+        ],
+        "quotes": "off",
+        "@typescript-eslint/quotes": [
+          "error",
+          "single"
+        ],
+        "template-curly-spacing": "error",
+        "function-paren-newline": "error",
+        //maybe change config
+        "arrow-spacing": "error",
+        "implicit-arrow-linebreak": "error",
+        "object-curly-newline": "error",
+        "operator-linebreak": "error",
+        "nonblock-statement-body-position": "error",
+        "brace-style": "off",
+        "@typescript-eslint/brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "indent": "off",
+        "@typescript-eslint/indent": ["error", 2, { "SwitchCase": 1 }],
+        "space-before-blocks": "off",
+        "@typescript-eslint/space-before-blocks": "error",
+        "keyword-spacing": "off",
+        "@typescript-eslint/keyword-spacing": [
+          "error",
+          {
+            "overrides": {
+              "switch": { "after": false },
+              "catch": { "after": false }
+            }
+          }
+        ],
+        "space-infix-ops": "off",
+        "@typescript-eslint/space-infix-ops": "error",
+        "eol-last": "error",
+//        "newline-per-chained-call": "error",
+        "no-whitespace-before-property": "error",
+        "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 0 }],
+        "space-in-parens": "error",
+        "array-bracket-spacing": "error",
+        "object-curly-spacing": "off",
+        "@typescript-eslint/object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "block-spacing": "error",
+        "comma-spacing": "off",
+        "@typescript-eslint/comma-spacing": "error",
+        "computed-property-spacing": "error",
+        "func-call-spacing": "off",
+        "@typescript-eslint/func-call-spacing": "error",
+        "key-spacing": "error",
+        "no-trailing-spaces": "error",
+        "comma-style": "error",
+        "no-mixed-operators": "warn",
+        //good idea
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": [
+          "error",
+          {
+            "arrays": "ignore",
+            "objects": "only-multiline",
+            "imports": "only-multiline",
+            "exports": "only-multiline",
+            "functions": "never"
+          }
+        ],
+        "semi": "off",
+        "@typescript-eslint/semi": "error",
+        "@typescript-eslint/member-delimiter-style": "error",
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "arrow-parens": ["error", "as-needed"],
+        // "spaced-comment": "error", //  TODO CHECK FOR OVERRIDES for comments with stars
+        "padded-blocks": ["error", "never"]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "@angular-eslint/template/no-negated-async": "off"
+      }
+    }
+  ]
+}

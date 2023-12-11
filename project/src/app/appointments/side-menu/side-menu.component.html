@@ -1,0 +1,34 @@
+<div class="container">
+  <h3>קביעת תור</h3>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-label" for="date">תאריך:</label>
+          <input class="form-control" type="date" id="date" formControlName="date" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+        <label class="form-label" for="time">שעה:</label>
+        <input class="form-control" type="time" id="time" formControlName="time" required>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="doctor">שם הרופא:</label>
+      <select class="form-select" id="doctor" formControlName="docName" required>
+        <option *ngFor="let doctor of doctors" [value]="doctor.firstName">{{ doctor.firstName }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="info">מידע נוסף:</label>
+      <textarea class="form-control" id="info" formControlName="info" rows="5" cols="20"></textarea>
+    </div>
+    <div class="form-buttons mt-5">
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">{{ editMode ? 'ערוך תור' : 'הזמן תור' }}
+      </button>
+      <button class="me-2 btn btn-danger" type="button" (click)="clear()">נקה</button>
+    </div>
+  </form>
+</div>

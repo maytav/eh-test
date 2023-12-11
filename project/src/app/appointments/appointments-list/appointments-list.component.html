@@ -1,0 +1,32 @@
+<div class="container">
+  <h3>רשימת התורים של {{username}}</h3>
+  <div class="row">
+  <div class="col-md-4">
+    <label for="doctor">סנן לפי שם רופא:</label>
+    <select class="form-select" id="doctor" [(ngModel)]="filter">
+      <option value="">הכל</option>
+      <option *ngFor="let doctor of doctors" [value]="doctor">{{doctor}}</option>
+    </select>
+  </div>
+  </div>
+  <div class="list-group">
+    <div *ngFor="let appointment of appointments | appointment:filter" class="list-group-item">
+      <div class="row">
+      <div class="col-md-8">
+      <div class="details">
+        <p><strong>שם הרופא:</strong> {{appointment.docName}}</p>
+        <p><strong>תאריך ושעה:</strong> {{appointment.date}} {{appointment.time}}</p>
+        <p><strong>מידע נוסף:</strong> {{appointment.info}}</p>
+      </div>
+      </div>
+        <div class="col-md-4">
+        <div class="buttons text-start">
+          <button class="btn btn-primary"  (click)="editAppointment(appointment.id)">ערוך</button>
+          <button  class="me-2 btn btn-danger" (click)="deleteAppointment(appointment.id)">מחק</button>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

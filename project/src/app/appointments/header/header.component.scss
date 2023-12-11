@@ -1,0 +1,46 @@
+.appointments-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: lightblue;
+
+}
+
+.appointments-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid black;
+  padding: 0 20px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.patient-details {
+  display: flex;
+  gap: 10px;
+}
+
+.date-time {
+  margin-right: auto;
+  display: flex;
+  gap: 10px;
+
+}
+
+input {
+  margin: 19px 10px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  outline: none;
+  &:focus{
+    border-bottom: 2px solid green;
+  }
+}
+h4 {
+  color: green;
+  font-weight: bold;
+}

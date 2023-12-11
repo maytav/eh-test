@@ -1,0 +1,14 @@
+<div class="appointments-content">
+  <div class="appointments-header">
+    <div class="patient-details" *ngIf="patient">
+      <strong>פרטי המטופל</strong>
+      <span>שם: {{patient.firstName}}</span>
+      <span>שם משפחה: {{patient.lastName}}</span>
+    </div>
+    <div class="date-time">
+      <h4>תאריך ושעת הכניסה</h4>
+      <input type="date" [valueAsDate]="date" placeholder="בחר תאריך" disabled>
+      <input type="time" [value]="time" placeholder="בחר שעה" disabled>
+    </div>
+  </div>
+</div>
